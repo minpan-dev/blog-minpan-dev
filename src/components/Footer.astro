@@ -2,9 +2,7 @@
 import type { HTMLAttributes } from 'astro/types';
 import Socials from './Socials.astro';
 import { SITE } from '@/config';
-import { useTranslations } from '@/utils/i18n';
-import { DEFAULT_LOCALE } from '@/constants';
-import type { Locale } from '@/types/i18n';
+import { useTranslations, getCurrentLocale } from '@/utils/i18n';
 
 const currentYear = new Date().getFullYear();
 
@@ -14,7 +12,7 @@ type Props = {
 
 const { noMarginTop = false, class: className, ...attrs } = Astro.props;
 
-const locale = (Astro.currentLocale || DEFAULT_LOCALE) as Locale;
+const locale = getCurrentLocale(Astro);
 const t = useTranslations(locale);
 ---
 

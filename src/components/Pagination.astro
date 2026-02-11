@@ -4,9 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import IconArrowLeft from '@/assets/icons/IconArrowLeft.svg';
 import IconArrowRight from '@/assets/icons/IconArrowRight.svg';
 import LinkButton from './LinkButton.astro';
-import { useTranslations } from '@/utils/i18n';
-import { DEFAULT_LOCALE } from '@/constants';
-import type { Locale } from '@/types/i18n';
+import { useTranslations, getCurrentLocale } from '@/utils/i18n';
 
 type Props = {
   page: Page<CollectionEntry<'blog'>>;
@@ -14,7 +12,7 @@ type Props = {
 
 const { page } = Astro.props;
 
-const locale = (Astro.currentLocale || DEFAULT_LOCALE) as Locale;
+const locale = getCurrentLocale(Astro);
 const t = useTranslations(locale);
 ---
 

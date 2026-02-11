@@ -1,12 +1,10 @@
 ---
 import { SHARE_LINKS } from '@/constants';
 import LinkButton from './LinkButton.astro';
-import { useTranslations } from '@/utils/i18n';
-import { DEFAULT_LOCALE } from '@/constants';
-import type { Locale } from '@/types/i18n';
+import { useTranslations, getCurrentLocale } from '@/utils/i18n';
 
 const URL = Astro.url;
-const locale = (Astro.currentLocale || DEFAULT_LOCALE) as Locale;
+const locale = getCurrentLocale(Astro);
 const t = useTranslations(locale);
 ---
 
@@ -16,8 +14,7 @@ const t = useTranslations(locale);
       <span class="italic">{t('post.share')}</span>
       <div class="text-center">
         {SHARE_LINKS.map((social) => {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const title = t(`share.${social.name.toLowerCase()}` as any);
+          const title = t(`share.${social.name.toLowerCase()}` as string);
           return (
             <LinkButton
               href={`${social.href + URL}`}

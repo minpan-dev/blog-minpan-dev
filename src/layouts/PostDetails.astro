@@ -15,9 +15,7 @@ import { slugifyStr } from '@/utils/slugify';
 import IconChevronLeft from '@/assets/icons/IconChevronLeft.svg';
 import IconChevronRight from '@/assets/icons/IconChevronRight.svg';
 import { SITE } from '@/config';
-import { useTranslations } from '@/utils/i18n';
-import { DEFAULT_LOCALE } from '@/constants';
-import type { Locale } from '@/types/i18n';
+import { useTranslations, getCurrentLocale } from '@/utils/i18n';
 
 type Props = {
   post: CollectionEntry<'blog'>;
@@ -26,7 +24,7 @@ type Props = {
 
 const { post, posts } = Astro.props;
 
-const locale = (Astro.currentLocale || DEFAULT_LOCALE) as Locale;
+const locale = getCurrentLocale(Astro);
 const t = useTranslations(locale);
 
 const {
