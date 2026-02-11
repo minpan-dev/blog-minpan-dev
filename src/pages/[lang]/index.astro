@@ -55,7 +55,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       </h1>
       <a
         target="_blank"
-        href="/rss.xml"
+        href={`/${locale}/rss.xml`}
         class="inline-block"
         aria-label={t('hero.rss')}
         title={t('hero.rss')}
