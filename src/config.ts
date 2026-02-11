@@ -16,7 +16,7 @@ export const SITE = {
   editPost: {
     enabled: true,
     text: 'Edit this page',
-    url: 'https://github.com/minpan-dev/minpan.dev/edit/main/',
+    url: 'https://github.com/minpan-dev/blog-minpan-dev/edit/main/',
   },
   dynamicOgImage: true,
   dir: 'ltr',
