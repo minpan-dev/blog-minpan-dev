@@ -1,7 +1,7 @@
 {
   "name": "minpan.dev",
   "private": true,
-  "description": "The personal website of Min Pan.",
+  "description": "My personal website",
   "type": "module",
   "scripts": {
     "astro": "astro",
